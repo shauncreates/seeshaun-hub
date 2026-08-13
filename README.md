@@ -1,14 +1,52 @@
-# Welcome to your Lovable project
+# Shaun's Creator Hub
+
+Build a modern, dark-mode personal creator & video editor portfolio website inspired by itzcrih.it. The design should feel sleek, premium, and tailored for a video editor/content creator. Use a deep dark background (#090d10 or #050505) with subtle neon green/emerald glow accents.
+
+1. Header & Navigation:
+
+A sticky top navigation bar with a glowing title "shaun" and navigation links: Projects, Edits, Playlists, Stats, and a Contact / DM button.
+
+2. Hero / Bio Section:
+
+Profile card containing a rounded avatar/logo with a subtle green border glow.
+
+Name: shaun
+
+Tagline: "Video Editor & Creator | Motion Graphics & Transition Edits"
+
+Social icon badges with hover effects linking to: TikTok, YouTube, Instagram, Discord, Spotify, GitHub, and Steam.
+
+Featured video banner or background video player with a play/mute toggle.
+
+3. Featured Projects Grid:
+
+Clean card layout showcasing key tools or links (e.g. "My Proxy", "Links Hub", "Edit Presets / Packs", "Discord Server") with hover glow, brief descriptions, and 'Open →' call-to-action buttons.
+
+4. After Effects / Video Edits Gallery:
+
+Grid section titled "Video Portfolio / After Effects Work".
+
+Cards for video edits with video thumbnail previews, client tags (e.g., @username), and a video modal player (or embedded HTML5 video player) when clicked to watch the edit directly.
+
+5. Stats & Platforms Counters:
+
+Grid boxes displaying statistics: TikTok Followers, YouTube Subscribers, Discord Members, and Projects Built.
+
+7. Footer:
+
+Copyright info (© 2026 seeshaun), legal/terms placeholders, and a quick 'Back to Top' button.
+
+Make sure all video links, social URLs and text descriptions are stored cleanly in a single configuration file or state object so I can easily update them with my own links and edits.
 
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
 
-Open your project in the [Lovable editor](https://lovable.dev) and keep building.
+Continue developing this project in the [Lovable editor](https://lovable.dev/projects/a83c72ad-80b7-4618-877d-bc417fc9850c).
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: connect the project to GitHub and every change made in Lovable is committed straight to your repository.
-- **Full ownership**: this code is yours. Push to your repository and your changes sync back into Lovable, ready for your next prompt.
+- **Stay in sync**: every change made in Lovable is committed straight to this repository.
+- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
 
 ## Development
 
@@ -20,10 +58,3 @@ cd <repository-name>
 npm i
 npm run dev
 ```
-
-## Built with
-
-- TanStack Start
-- TypeScript
-- React
-- Tailwind CSS
