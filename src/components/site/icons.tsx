@@ -46,12 +46,6 @@ const GitHub = ({ className }: P) => (
   </svg>
 );
 
-const Steam = ({ className }: P) => (
-  <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-    <path d="M12 2a10 10 0 0 0-9.97 9.2l5.36 2.22a2.83 2.83 0 0 1 1.63-.5l2.4-3.46v-.05a3.78 3.78 0 1 1 3.78 3.78h-.09l-3.4 2.43a2.83 2.83 0 0 1-5.63.28l-3.8-1.58A10 10 0 1 0 12 2Zm-4.4 15.1 1.22.5a2.12 2.12 0 1 0 1.2-2.87l1.27.53a1.56 1.56 0 1 1-1.2 2.88l-2.5-1.04Zm7.6-4.34a2.52 2.52 0 1 0 0-5.05 2.52 2.52 0 0 0 0 5.05Zm0-.63a1.9 1.9 0 1 1 0-3.79 1.9 1.9 0 0 1 0 3.79Z" />
-  </svg>
-);
-
 const map: Record<SocialKey, (p: P) => ReactElement> = {
   tiktok: TikTok,
   youtube: YouTube,
@@ -59,5 +53,4 @@ const map: Record<SocialKey, (p: P) => ReactElement> = {
   discord: Discord,
   spotify: Spotify,
   github: GitHub,
-  steam: Steam,
 };

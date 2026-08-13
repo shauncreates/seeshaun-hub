@@ -3,7 +3,6 @@ import { SiteNav } from "@/components/site/SiteNav";
 import { Hero } from "@/components/site/Hero";
 import { Projects } from "@/components/site/Projects";
 import { Edits } from "@/components/site/Edits";
-import { Playlists } from "@/components/site/Playlists";
 import { Stats } from "@/components/site/Stats";
 import { Footer } from "@/components/site/Footer";
 
@@ -33,7 +32,6 @@ function Index() {
         <Hero />
         <Projects />
         <Edits />
-        <Playlists />
         <Stats />
       </main>
       <Footer />
