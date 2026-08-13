@@ -57,5 +57,9 @@ async function fetchYouTubeSubscribers(): Promise<number | null> {
     items?: Array<{ statistics?: { subscriberCount?: string } }>;
   };
   const count = json.items?.[0]?.statistics?.subscriberCount;
-  return count ? Number(count) : null;
+  if (!count) {
+    console.error(`YouTube channel "${channel}" returned no statistics.`);
+    return null;
+  }
+  return Number(count);
 }
