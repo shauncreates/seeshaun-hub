@@ -4,14 +4,7 @@
  * ─────────────────────────────────────────────────────────────
  */
 
-export type SocialKey =
-  | "tiktok"
-  | "youtube"
-  | "instagram"
-  | "discord"
-  | "spotify"
-  | "github"
-  | "steam";
+export type SocialKey = "tiktok" | "youtube" | "instagram" | "discord" | "spotify" | "github";
 
 export const siteConfig = {
   name: "shaun",
@@ -25,7 +18,6 @@ export const siteConfig = {
   nav: [
     { label: "Projects", href: "#projects" },
     { label: "Edits", href: "#edits" },
-    { label: "Playlists", href: "#playlists" },
     { label: "Stats", href: "#stats" },
   ],
 
@@ -33,11 +25,56 @@ export const siteConfig = {
     { key: "tiktok" as SocialKey, label: "TikTok", url: "https://tiktok.com/@seeshaun" },
     { key: "youtube" as SocialKey, label: "YouTube", url: "https://youtube.com/@seeshaun" },
     { key: "instagram" as SocialKey, label: "Instagram", url: "https://instagram.com/seeshaun" },
-    { key: "discord" as SocialKey, label: "Discord", url: "https://discord.gg/seeshaun" },
     { key: "spotify" as SocialKey, label: "Spotify", url: "https://open.spotify.com/user/seeshaun" },
     { key: "github" as SocialKey, label: "GitHub", url: "https://github.com/seeshaun" },
-    { key: "steam" as SocialKey, label: "Steam", url: "https://steamcommunity.com/id/seeshaun" },
   ],
+
+  /**
+   * Linktree-style page at /links — add, remove or reorder freely.
+   * `featured: true` gives the row a highlighted/glowing style.
+   */
+  links: {
+    title: "seeshaun",
+    subtitle: "Video editor · motion graphics · commissions open",
+    items: [
+      {
+        label: "TikTok",
+        description: "Daily edits & clips",
+        url: "https://tiktok.com/@seeshaun",
+        icon: "tiktok" as SocialKey,
+        featured: true,
+      },
+      {
+        label: "YouTube",
+        description: "Showreels and long-form edits",
+        url: "https://youtube.com/@seeshaun",
+        icon: "youtube" as SocialKey,
+      },
+      {
+        label: "Instagram",
+        description: "Behind the scenes",
+        url: "https://instagram.com/seeshaun",
+        icon: "instagram" as SocialKey,
+      },
+      {
+        label: "Spotify",
+        description: "What I loop while editing",
+        url: "https://open.spotify.com/user/seeshaun",
+        icon: "spotify" as SocialKey,
+      },
+      {
+        label: "GitHub",
+        description: "Code, tools and experiments",
+        url: "https://github.com/seeshaun",
+        icon: "github" as SocialKey,
+      },
+    ],
+    /** Extra plain buttons (no social icon) shown under the socials. */
+    extras: [
+      { label: "My Proxy", url: "https://proxy.seeshaun.xyz" },
+      { label: "Commission / DM me", url: "https://discord.com/users/000000000000000000" },
+    ],
+  },
 
   /** Background/featured video in the hero banner. */
   featuredVideo: {
@@ -51,13 +88,13 @@ export const siteConfig = {
     {
       title: "My Proxy",
       description: "Fast, private proxy I built and host for friends and the community.",
-      url: "https://example.com/proxy",
+      url: "https://proxy.seeshaun.xyz",
       tag: "Web",
     },
     {
       title: "Links Hub",
       description: "One page with every socials link, commission form and pricing.",
-      url: "https://example.com/links",
+      url: "/links",
       tag: "Hub",
     },
     {
@@ -65,12 +102,6 @@ export const siteConfig = {
       description: "After Effects presets, transitions, overlays and SFX packs I use daily.",
       url: "https://example.com/packs",
       tag: "Downloads",
-    },
-    {
-      title: "Discord Server",
-      description: "Editing help, feedback channels, free assets and commission drops.",
-      url: "https://discord.gg/seeshaun",
-      tag: "Community",
     },
   ],
 
@@ -120,38 +151,24 @@ export const siteConfig = {
     },
   ],
 
-  playlists: [
-    {
-      title: "Edit Fuel",
-      description: "Phonk, hyperpop and hard drums — what I loop while cutting.",
-      url: "https://open.spotify.com/playlist/37i9dQZF1DX0XUsuxWHRQd",
-      tracks: 84,
+  /**
+   * Live stats. Values are pulled from the connected TikTok account and the
+   * YouTube channel below; `fallback` is shown while loading or if a platform
+   * is not connected yet.
+   */
+  stats: {
+    /** YouTube handle (without @) or channel ID starting with UC… */
+    youtubeChannel: "seeshaun",
+    fallback: {
+      tiktokFollowers: "—",
+      youtubeSubscribers: "—",
     },
-    {
-      title: "Slowed & Reverb",
-      description: "Ambient and slowed edits for cinematic sequences.",
-      url: "https://open.spotify.com/playlist/37i9dQZF1DWZeKCadgRdKQ",
-      tracks: 52,
-    },
-    {
-      title: "Transition SFX",
-      description: "Whooshes, risers and impacts I drop into every project.",
-      url: "https://open.spotify.com/playlist/37i9dQZF1DX4dyzvuaRJ0n",
-      tracks: 31,
-    },
-  ],
-
-  stats: [
-    { label: "TikTok Followers", value: "128K" },
-    { label: "YouTube Subscribers", value: "42.6K" },
-    { label: "Discord Members", value: "9,340" },
-    { label: "Projects Built", value: "260+" },
-  ],
+  },
 
   footerLinks: [
+    { label: "Links", url: "/links" },
     { label: "Terms", url: "#" },
     { label: "Privacy", url: "#" },
-    { label: "Licensing", url: "#" },
   ],
 };
 
