@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 
@@ -35,6 +36,12 @@ export function SiteNav() {
               {item.label}
             </a>
           ))}
+          <Link
+            to="/links"
+            className="rounded-full px-3.5 py-2 text-sm text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          >
+            Links
+          </Link>
         </div>
 
         <a
