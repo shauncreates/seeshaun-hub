@@ -158,7 +158,7 @@ export const siteConfig = {
    */
   stats: {
     /** YouTube handle (without @) or channel ID starting with UC… */
-    youtubeChannel: "seeshaun",
+    youtubeChannel: "UCVgjHTAKPoyJz4D3h1ra3-A",
     fallback: {
       tiktokFollowers: "—",
       youtubeSubscribers: "—",
