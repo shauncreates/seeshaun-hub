@@ -1,3 +1,4 @@
+import type { ReactElement } from "react";
 import type { SocialKey } from "@/config/site";
 
 type P = { className?: string };
@@ -51,7 +52,7 @@ const Steam = ({ className }: P) => (
   </svg>
 );
 
-const map: Record<SocialKey, (p: P) => JSX.Element> = {
+const map: Record<SocialKey, (p: P) => ReactElement> = {
   tiktok: TikTok,
   youtube: YouTube,
   instagram: Instagram,
