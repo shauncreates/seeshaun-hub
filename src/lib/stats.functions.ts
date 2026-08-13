@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { siteConfig } from "@/config/site";
 
 export type SocialStats = {
   tiktokFollowers: number | null;
@@ -39,7 +40,7 @@ async function fetchTikTokFollowers(): Promise<number | null> {
 
 async function fetchYouTubeSubscribers(): Promise<number | null> {
   const key = process.env["YOUTUBE_API_KEY"];
-  const channel = process.env["YOUTUBE_CHANNEL"] ?? "seeshaun";
+  const channel = process.env["YOUTUBE_CHANNEL"] ?? siteConfig.stats.youtubeChannel;
   if (!key) return null;
 
   const param = channel.startsWith("UC")
