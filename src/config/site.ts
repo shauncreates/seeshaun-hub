@@ -73,6 +73,7 @@ export const siteConfig = {
     extras: [
       { label: "My Proxy", url: "https://proxy.seeshaun.xyz" },
       { label: "Commission / DM me", url: "https://discord.com/users/000000000000000000" },
+      { label: "Roblox Funk Editors Top 30", url: "https://robloxeditorslist.seeshaun.xyz" },
     ],
   },
 

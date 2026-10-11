@@ -58,3 +58,25 @@ cd <repository-name>
 npm i
 npm run dev
 ```
+
+## Deploying on Vercel
+
+This repo is set up to deploy on Vercel. `vite.config.ts` pins the Nitro preset to `vercel`, so
+`vite build` writes a Vercel build output (`.vercel/output`). Inside Lovable the preset is still
+pinned to Cloudflare, so Lovable previews keep working.
+
+1. On vercel.com choose **Add New → Project** and import this GitHub repo.
+2. Leave the settings on their defaults (build command `vite build`, nothing else to change)
+   and click **Deploy**.
+3. Add your domain under **Settings → Domains** (e.g. `seeshaun.xyz`) and add the DNS record Vercel shows.
+
+Optional environment variables (Settings → Environment Variables), then redeploy:
+
+| Variable | What it does |
+| --- | --- |
+| `YOUTUBE_API_KEY` | Shows your live YouTube subscriber count in the Stats section |
+| `YOUTUBE_CHANNEL` | Optional override for the channel (defaults to the one in `src/config/site.ts`) |
+
+The live TikTok follower count came from Lovable's connector, which isn't available on Vercel.
+The Stats section shows the value in `stats.fallback.tiktokFollowers` in `src/config/site.ts`
+instead, so type your current follower count there if you want a number to show.
