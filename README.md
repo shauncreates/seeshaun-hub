@@ -80,3 +80,11 @@ Optional environment variables (Settings → Environment Variables), then redepl
 The live TikTok follower count came from Lovable's connector, which isn't available on Vercel.
 The Stats section shows the value in `stats.fallback.tiktokFollowers` in `src/config/site.ts`
 instead, so type your current follower count there if you want a number to show.
+
+## Portfolio studio
+
+The redesigned public site uses the portfolio entries from `src/lib/portfolio.ts` as defaults. Visit `/studio` to add or remove videos and projects. Videos can be assigned to **Edits**, **Motion graphics**, or **Other work**, and the public gallery filters by those categories. The studio supports JSON backup export and import.
+
+**Important current limitation:** this initial studio stores edits in the current browser's `localStorage`. It is useful for local preview and prototyping, but changes do not sync to other devices or publish to visitors' browsers. The studio route does not yet have server-side authentication, so do not treat it as a secure admin panel. Before using it as the live CMS, connect a database and server-side sign-in, then deploy with those services configured.
+
+The gallery starts empty instead of presenting stock sample footage as if it were Shaun's actual editing work. Existing project links are retained except for the example-only packs URL.

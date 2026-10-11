@@ -1,10 +1,7 @@
-<!-- LOVABLE:BEGIN -->
-> [!IMPORTANT]
-> This project is connected to [Lovable](https://lovable.dev). Avoid rewriting
-> published git history — force pushing, or rebasing/amending/squashing commits
-> that are already pushed — as it rewrites history on Lovable's side and the
-> user will likely lose their project history.
->
-> Commits you push to the connected branch sync back to Lovable and show up in
-> the editor, so keep the branch in a working state.
-<!-- LOVABLE:END -->
+# Project notes
+
+This is the personal site for seeshaun (seeshaun.xyz), built with TanStack Start and deployed on Vercel.
+
+For UI work, read `DESIGN.md` for direction, then `.agents/skills/antislop/SKILL.md` as the filter.
+Do not add placeholder content. If real content is missing, show an honest "coming soon" state.
+Do not bypass the 24 hour package guard in `bunfig.toml` without asking the owner first.

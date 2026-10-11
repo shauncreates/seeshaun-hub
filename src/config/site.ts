@@ -1,7 +1,5 @@
 /**
- * ─────────────────────────────────────────────────────────────
- *  SITE CONFIG — edit everything here (links, videos, stats).
- * ─────────────────────────────────────────────────────────────
+ * SITE CONFIG: edit your links and projects here.
  */
 
 export type SocialKey = "tiktok" | "youtube" | "instagram" | "discord" | "spotify" | "github";
@@ -10,16 +8,9 @@ export const siteConfig = {
   name: "shaun",
   handle: "@seeshaun",
   tagline: "Video Editor & Creator | Motion Graphics & Transition Edits",
-  bio: "I cut fast, punchy edits — transitions, motion graphics and sound design for creators, gaming clips and brands. Available for commissions.",
-  contactUrl: "https://discord.com/users/000000000000000000",
-  contactLabel: "Contact / DM",
+  bio: "I cut fast, punchy edits: transitions, motion graphics and sound design for creators, gaming clips and brands. Available for commissions.",
+  contactUrl: "https://discord.com/users/527986426101497866",
   copyright: "© 2026 seeshaun",
-
-  nav: [
-    { label: "Projects", href: "#projects" },
-    { label: "Edits", href: "#edits" },
-    { label: "Stats", href: "#stats" },
-  ],
 
   socials: [
     { key: "tiktok" as SocialKey, label: "TikTok", url: "https://tiktok.com/@seeshaun" },
@@ -29,10 +20,7 @@ export const siteConfig = {
     { key: "github" as SocialKey, label: "GitHub", url: "https://github.com/shauncreates" },
   ],
 
-  /**
-   * Linktree-style page at /links — add, remove or reorder freely.
-   * `featured: true` gives the row a highlighted/glowing style.
-   */
+  /** Link-in-bio page at /links. Add, remove or reorder freely. */
   links: {
     title: "seeshaun",
     subtitle: "Video editor · motion graphics · commissions open",
@@ -72,104 +60,30 @@ export const siteConfig = {
     /** Extra plain buttons (no social icon) shown under the socials. */
     extras: [
       { label: "My Proxy", url: "https://proxy.seeshaun.xyz" },
-      { label: "Commission / DM me", url: "https://discord.com/users/000000000000000000" },
+      { label: "Commission / DM me", url: "https://discord.com/users/527986426101497866" },
       { label: "Roblox Funk Editors Top 30", url: "https://robloxeditorslist.seeshaun.xyz" },
     ],
-  },
-
-  /** Background/featured video in the hero banner. */
-  featuredVideo: {
-    src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-    poster: "", // leave empty to use the bundled hero banner image
-    title: "Showreel 2026",
-    subtitle: "Transitions · Motion graphics · Sound design",
   },
 
   projects: [
     {
       title: "My Proxy",
-      description: "Fast, private proxy I built and host for friends and the community.",
+      description: "A web proxy I built and host for friends and the community.",
       url: "https://proxy.seeshaun.xyz",
       tag: "Web",
     },
     {
+      title: "Roblox Funk Editors Top 30",
+      description: "A ranked list of Roblox funk editors, split by editing style.",
+      url: "https://robloxeditorslist.seeshaun.xyz",
+      tag: "List",
+    },
+    {
       title: "Links Hub",
-      description: "One page with every socials link, commission form and pricing.",
+      description: "Every link of mine in one place.",
       url: "/links",
       tag: "Hub",
     },
-    {
-      title: "Edit Presets / Packs",
-      description: "After Effects presets, transitions, overlays and SFX packs I use daily.",
-      url: "https://example.com/packs",
-      tag: "Downloads",
-    },
-  ],
-
-  /** Video portfolio — swap `src` for your own mp4 links. */
-  edits: [
-    {
-      title: "Neon Drift Edit",
-      client: "@velocity",
-      type: "AMV / Car Edit",
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-      poster: "",
-    },
-    {
-      title: "Velocity Montage",
-      client: "@kaze",
-      type: "Gaming Montage",
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-      poster: "",
-    },
-    {
-      title: "Chroma Transitions",
-      client: "@luma",
-      type: "After Effects",
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-      poster: "",
-    },
-    {
-      title: "Brand Promo Cut",
-      client: "@northwave",
-      type: "Commercial",
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-      poster: "",
-    },
-    {
-      title: "Anime Beat Sync",
-      client: "@sora",
-      type: "Beat Sync",
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-      poster: "",
-    },
-    {
-      title: "Clip Highlight Reel",
-      client: "@rev",
-      type: "Highlights",
-      src: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
-      poster: "",
-    },
-  ],
-
-  /**
-   * Live stats. Values are pulled from the connected TikTok account and the
-   * YouTube channel below; `fallback` is shown while loading or if a platform
-   * is not connected yet.
-   */
-  stats: {
-    /** YouTube handle (without @) or channel ID starting with UC… */
-    youtubeChannel: "UCVgjHTAKPoyJz4D3h1ra3-A",
-    fallback: {
-      tiktokFollowers: "—",
-      youtubeSubscribers: "—",
-    },
-  },
-
-  footerLinks: [
-    { label: "Links", url: "/links" },
-    { label: "Terms", url: "#" },
-    { label: "Privacy", url: "#" },
   ],
 };
 
