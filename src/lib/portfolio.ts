@@ -19,7 +19,6 @@ export type PortfolioProject = {
 };
 
 export type PortfolioData = { videos: PortfolioVideo[]; projects: PortfolioProject[] };
-export const PORTFOLIO_KEY = "seeshaun-portfolio-v1";
 
 const id = (prefix: string, index: number) => `${prefix}-${index + 1}`;
 export const defaultPortfolio: PortfolioData = {
@@ -29,19 +28,17 @@ export const defaultPortfolio: PortfolioData = {
     .map((project, index) => ({ ...project, id: id("project", index) })),
 };
 
-export function readPortfolio(): PortfolioData {
-  if (typeof window === "undefined") return defaultPortfolio;
-  try {
-    const saved = window.localStorage.getItem(PORTFOLIO_KEY);
-    if (!saved) return defaultPortfolio;
-    const parsed = JSON.parse(saved) as PortfolioData;
-    if (!Array.isArray(parsed.videos) || !Array.isArray(parsed.projects)) return defaultPortfolio;
-    return parsed;
-  } catch {
-    return defaultPortfolio;
-  }
-}
+export type AboutContent = {
+  /** First line of the heading, plain. */
+  heading: string;
+  /** Second line of the heading, shown in lime. */
+  accent: string;
+  /** Body text. A blank line starts a new paragraph. */
+  body: string;
+};
 
-export function writePortfolio(data: PortfolioData) {
-  window.localStorage.setItem(PORTFOLIO_KEY, JSON.stringify(data));
-}
+export const defaultAbout: AboutContent = {
+  heading: "Hey, I’m Shaun.",
+  accent: "I make stuff.",
+  body: "I’m a creator focused on punchy video edits, motion design and the little details that make a piece feel alive. I like learning how things work just as much as making them look good.",
+};

@@ -61,30 +61,28 @@ npm run dev
 
 ## Deploying on Vercel
 
-This repo is set up to deploy on Vercel. `vite.config.ts` pins the Nitro preset to `vercel`, so
-`vite build` writes a Vercel build output (`.vercel/output`). Inside Lovable the preset is still
-pinned to Cloudflare, so Lovable previews keep working.
+This project is configured for Vercel through the Nitro Vercel preset in `vite.config.ts`.
 
-1. On vercel.com choose **Add New → Project** and import this GitHub repo.
-2. Leave the settings on their defaults (build command `vite build`, nothing else to change)
-   and click **Deploy**.
-3. Add your domain under **Settings → Domains** (e.g. `seeshaun.xyz`) and add the DNS record Vercel shows.
+1. Push this project to a GitHub repository and import that repository in Vercel (**Add New → Project**).
+2. Use the detected settings. The build command is `npm run build` (equivalent to `vite build`); do not set a static output directory.
+3. In Vercel, open **Project → Settings → Environment Variables** and add:
+   - `VITE_SUPABASE_URL` — your Supabase project URL.
+   - `VITE_SUPABASE_ANON_KEY` — your Supabase publishable/anon key only. Never use a service-role key in a `VITE_` variable.
+4. Apply the SQL migrations in `supabase/migrations` to the same Supabase project if you have not already done so. Confirm Row Level Security policies are enabled.
+5. Redeploy after setting the variables. Test `/`, `/links`, and `/studio` on the deployed domain.
+6. Add your custom domain under **Settings → Domains** in Vercel and follow the DNS instructions shown there.
 
-Optional environment variables (Settings → Environment Variables), then redeploy:
+Optional variables used by the stats feature:
 
-| Variable | What it does |
+| Variable | Purpose |
 | --- | --- |
-| `YOUTUBE_API_KEY` | Shows your live YouTube subscriber count in the Stats section |
-| `YOUTUBE_CHANNEL` | Optional override for the channel (defaults to the one in `src/config/site.ts`) |
+| `YOUTUBE_API_KEY` | Server-side YouTube subscriber count, if enabled. |
+| `YOUTUBE_CHANNEL` | Optional YouTube channel override. |
 
-The live TikTok follower count came from Lovable's connector, which isn't available on Vercel.
-The Stats section shows the value in `stats.fallback.tiktokFollowers` in `src/config/site.ts`
-instead, so type your current follower count there if you want a number to show.
+Do not commit `.env.local` or other environment files. `.env.example` contains placeholders only.
 
 ## Portfolio studio
 
-The redesigned public site uses the portfolio entries from `src/lib/portfolio.ts` as defaults. Visit `/studio` to add or remove videos and projects. Videos can be assigned to **Edits**, **Motion graphics**, or **Other work**, and the public gallery filters by those categories. The studio supports JSON backup export and import.
+The public homepage loads published videos, projects, and About content from Supabase. Sign in at `/studio` using a Supabase Auth account that has a matching row in `studio_admins`. The Studio can add and delete videos and projects; the homepage displays published entries.
 
-**Important current limitation:** this initial studio stores edits in the current browser's `localStorage`. It is useful for local preview and prototyping, but changes do not sync to other devices or publish to visitors' browsers. The studio route does not yet have server-side authentication, so do not treat it as a secure admin panel. Before using it as the live CMS, connect a database and server-side sign-in, then deploy with those services configured.
-
-The gallery starts empty instead of presenting stock sample footage as if it were Shaun's actual editing work. Existing project links are retained except for the example-only packs URL.
+Video URLs can be direct playable video files, YouTube links, or supported TikTok video links. Embedding may be disabled for individual third-party videos. Keep the Supabase Row Level Security policies enabled and only add trusted user IDs to `studio_admins`.
