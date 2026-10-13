@@ -8,6 +8,7 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { MotionEffects } from "@/components/site/Motion";
@@ -75,7 +76,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "seeshaun | Video editor" },
-      { name: "description", content: "seeshaun (@seeshaun): video editor making transition edits and motion graphics." },
+      {
+        name: "description",
+        content: "seeshaun (@seeshaun): video editor making transition edits and motion graphics.",
+      },
       { property: "og:site_name", content: "seeshaun" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -117,6 +121,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <body>
         {children}
         <Scripts />
+        <Analytics />
       </body>
     </html>
   );

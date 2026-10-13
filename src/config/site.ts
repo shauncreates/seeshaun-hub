@@ -15,8 +15,16 @@ export const siteConfig = {
   socials: [
     { key: "tiktok" as SocialKey, label: "TikTok", url: "https://tiktok.com/@seeshaun" },
     { key: "youtube" as SocialKey, label: "YouTube", url: "https://www.youtube.com/@shaun_vfx" },
-    { key: "instagram" as SocialKey, label: "Instagram", url: "https://www.instagram.com/shaun_vfx" },
-    { key: "spotify" as SocialKey, label: "Spotify", url: "https://open.spotify.com/user/31pys274hbig3wp7lrtd6bvjy3si" },
+    {
+      key: "instagram" as SocialKey,
+      label: "Instagram",
+      url: "https://www.instagram.com/shaun_vfx",
+    },
+    {
+      key: "spotify" as SocialKey,
+      label: "Spotify",
+      url: "https://open.spotify.com/user/31pys274hbig3wp7lrtd6bvjy3si",
+    },
     { key: "github" as SocialKey, label: "GitHub", url: "https://github.com/shauncreates" },
   ],
 

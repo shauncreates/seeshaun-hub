@@ -1,4 +1,10 @@
-import { defaultAbout, type AboutContent, type PortfolioData, type PortfolioProject, type PortfolioVideo } from "@/lib/portfolio";
+import {
+  defaultAbout,
+  type AboutContent,
+  type PortfolioData,
+  type PortfolioProject,
+  type PortfolioVideo,
+} from "@/lib/portfolio";
 import { getSupabaseBrowserClient } from "@/lib/supabase";
 
 export type NewPortfolioVideo = Omit<PortfolioVideo, "id"> & { id?: string };
@@ -13,7 +19,10 @@ export class StudioBackendError extends Error {
 
 function requireClient() {
   const client = getSupabaseBrowserClient();
-  if (!client) throw new StudioBackendError("Supabase is not configured. Add the VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.");
+  if (!client)
+    throw new StudioBackendError(
+      "Supabase is not configured. Add the VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY environment variables.",
+    );
   return client;
 }
 
@@ -153,14 +162,12 @@ export async function fetchAbout(): Promise<AboutContent> {
 
 /** Studio only: saves the About text. The database rejects this for anyone who is not an admin. */
 export async function saveStudioAbout(about: AboutContent) {
-  const { error } = await requireClient()
-    .from("site_about")
-    .upsert({
-      id: 1,
-      heading: about.heading.trim(),
-      accent: about.accent.trim(),
-      body: about.body.trim(),
-      updated_at: new Date().toISOString(),
-    });
+  const { error } = await requireClient().from("site_about").upsert({
+    id: 1,
+    heading: about.heading.trim(),
+    accent: about.accent.trim(),
+    body: about.body.trim(),
+    updated_at: new Date().toISOString(),
+  });
   if (error) throw new StudioBackendError(error.message);
 }

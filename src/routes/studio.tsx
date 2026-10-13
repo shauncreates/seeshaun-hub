@@ -1,4 +1,3 @@
-
 import { useEffect, useState, type FormEvent } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Plus, Trash2, LogIn, LogOut } from "lucide-react";
@@ -70,9 +69,7 @@ function Studio() {
         }
       } catch (error) {
         if (active) {
-          setNotice(
-            error instanceof Error ? error.message : "Could not connect to Supabase."
-          );
+          setNotice(error instanceof Error ? error.message : "Could not connect to Supabase.");
         }
       } finally {
         if (active) setLoading(false);
@@ -98,9 +95,7 @@ function Studio() {
       setPassword("");
       setNotice("Signed in. Your portfolio is connected to Supabase.");
     } catch (error) {
-      setNotice(
-        error instanceof Error ? error.message : "Sign-in failed."
-      );
+      setNotice(error instanceof Error ? error.message : "Sign-in failed.");
     } finally {
       setBusy(false);
     }
@@ -225,22 +220,28 @@ function Studio() {
   }
 
   if (loading) {
-    return <main className="studio-shell"><p className="studio-lede">Connecting to Studio…</p></main>;
+    return (
+      <main className="studio-shell">
+        <p className="studio-lede">Connecting to Studio…</p>
+      </main>
+    );
   }
 
   return (
     <div className="studio-shell">
       <header className="studio-header">
-        <Link to="/" className="studio-back"><ArrowLeft size={16} /> Back to website</Link>
+        <Link to="/" className="studio-back">
+          <ArrowLeft size={16} /> Back to website
+        </Link>
         <span className="studio-mark">SEESHAUN / STUDIO</span>
       </header>
 
       <main className="studio-main">
         <p className="section-kicker">CONTENT WORKSPACE / SUPABASE</p>
-        <h1>Manage your <em>work.</em></h1>
-        <p className="studio-lede">
-          Your changes are saved to the connected portfolio database.
-        </p>
+        <h1>
+          Manage your <em>work.</em>
+        </h1>
+        <p className="studio-lede">Your changes are saved to the connected portfolio database.</p>
 
         {!loggedIn ? (
           <section className="studio-form-panel">
@@ -306,7 +307,9 @@ function Studio() {
                       <input
                         value={aboutForm.heading}
                         maxLength={80}
-                        onChange={(event) => setAboutForm({ ...aboutForm, heading: event.target.value })}
+                        onChange={(event) =>
+                          setAboutForm({ ...aboutForm, heading: event.target.value })
+                        }
                       />
                     </label>
                     <label>
@@ -314,7 +317,9 @@ function Studio() {
                       <input
                         value={aboutForm.accent}
                         maxLength={80}
-                        onChange={(event) => setAboutForm({ ...aboutForm, accent: event.target.value })}
+                        onChange={(event) =>
+                          setAboutForm({ ...aboutForm, accent: event.target.value })
+                        }
                       />
                     </label>
                     <label>
@@ -323,7 +328,9 @@ function Studio() {
                         value={aboutForm.body}
                         rows={9}
                         maxLength={2000}
-                        onChange={(event) => setAboutForm({ ...aboutForm, body: event.target.value })}
+                        onChange={(event) =>
+                          setAboutForm({ ...aboutForm, body: event.target.value })
+                        }
                       />
                     </label>
                     <button className="studio-submit" disabled={busy} type="submit">
@@ -331,99 +338,102 @@ function Studio() {
                     </button>
                   </form>
                 ) : (
+                  <form onSubmit={submit}>
+                    <label>
+                      Title
+                      <input
+                        value={form.title}
+                        onChange={(event) => setForm({ ...form, title: event.target.value })}
+                        required
+                      />
+                    </label>
 
-                <form onSubmit={submit}>
-                  <label>
-                    Title
-                    <input
-                      value={form.title}
-                      onChange={(event) => setForm({ ...form, title: event.target.value })}
-                      required
-                    />
-                  </label>
-
-                  {kind === "video" ? (
-                    <>
-                      <label>
-                        Video URL
-                        <input
-                          type="url"
-                          value={form.src}
-                          onChange={(event) => setForm({ ...form, src: event.target.value })}
-                          required
-                        />
-                      </label>
-                      <label>
-                        Thumbnail URL (optional)
-                        <input
-                          type="url"
-                          value={form.poster}
-                          onChange={(event) => setForm({ ...form, poster: event.target.value })}
-                        />
-                      </label>
-                      <div className="studio-field-row">
+                    {kind === "video" ? (
+                      <>
                         <label>
-                          Category
-                          <select
-                            value={form.category}
-                            onChange={(event) => setForm({ ...form, category: event.target.value })}
-                          >
-                            <option>Edits</option>
-                            <option>Motion graphics</option>
-                            <option>Other work</option>
-                          </select>
-                        </label>
-                        <label>
-                          Format
+                          Video URL
                           <input
-                            value={form.type}
-                            onChange={(event) => setForm({ ...form, type: event.target.value })}
-                            placeholder="AMV / 3D / VFX"
+                            type="url"
+                            value={form.src}
+                            onChange={(event) => setForm({ ...form, src: event.target.value })}
+                            required
                           />
                         </label>
-                      </div>
-                      <label>
-                        Client or credit
-                        <input
-                          value={form.client}
-                          onChange={(event) => setForm({ ...form, client: event.target.value })}
-                          placeholder="Personal work or @handle"
-                        />
-                      </label>
-                    </>
-                  ) : (
-                    <>
-                      <label>
-                        Project URL
-                        <input
-                          type="url"
-                          value={form.url}
-                          onChange={(event) => setForm({ ...form, url: event.target.value })}
-                          required
-                        />
-                      </label>
-                      <label>
-                        Description
-                        <textarea
-                          value={form.description}
-                          onChange={(event) => setForm({ ...form, description: event.target.value })}
-                          rows={3}
-                        />
-                      </label>
-                      <label>
-                        Tag
-                        <input
-                          value={form.tag}
-                          onChange={(event) => setForm({ ...form, tag: event.target.value })}
-                        />
-                      </label>
-                    </>
-                  )}
+                        <label>
+                          Thumbnail URL (optional)
+                          <input
+                            type="url"
+                            value={form.poster}
+                            onChange={(event) => setForm({ ...form, poster: event.target.value })}
+                          />
+                        </label>
+                        <div className="studio-field-row">
+                          <label>
+                            Category
+                            <select
+                              value={form.category}
+                              onChange={(event) =>
+                                setForm({ ...form, category: event.target.value })
+                              }
+                            >
+                              <option>Edits</option>
+                              <option>Motion graphics</option>
+                              <option>Other work</option>
+                            </select>
+                          </label>
+                          <label>
+                            Format
+                            <input
+                              value={form.type}
+                              onChange={(event) => setForm({ ...form, type: event.target.value })}
+                              placeholder="AMV / 3D / VFX"
+                            />
+                          </label>
+                        </div>
+                        <label>
+                          Client or credit
+                          <input
+                            value={form.client}
+                            onChange={(event) => setForm({ ...form, client: event.target.value })}
+                            placeholder="Personal work or @handle"
+                          />
+                        </label>
+                      </>
+                    ) : (
+                      <>
+                        <label>
+                          Project URL
+                          <input
+                            type="url"
+                            value={form.url}
+                            onChange={(event) => setForm({ ...form, url: event.target.value })}
+                            required
+                          />
+                        </label>
+                        <label>
+                          Description
+                          <textarea
+                            value={form.description}
+                            onChange={(event) =>
+                              setForm({ ...form, description: event.target.value })
+                            }
+                            rows={3}
+                          />
+                        </label>
+                        <label>
+                          Tag
+                          <input
+                            value={form.tag}
+                            onChange={(event) => setForm({ ...form, tag: event.target.value })}
+                          />
+                        </label>
+                      </>
+                    )}
 
-                  <button className="studio-submit" disabled={busy} type="submit">
-                    <Plus size={16} /> Add {kind === "video" ? "video" : "project"}
-                  </button>
-                </form>
+                    <button className="studio-submit" disabled={busy} type="submit">
+                      <Plus size={16} /> Add {kind === "video" ? "video" : "project"}
+                    </button>
+                  </form>
                 )}
               </section>
 
@@ -431,7 +441,9 @@ function Studio() {
                 <div className="studio-list-heading">
                   <div>
                     <p className="section-kicker">DATABASE ITEMS</p>
-                    <h2>Videos <span>{data.videos.length.toString().padStart(2, "0")}</span></h2>
+                    <h2>
+                      Videos <span>{data.videos.length.toString().padStart(2, "0")}</span>
+                    </h2>
                   </div>
                 </div>
                 <div className="studio-item-list">
@@ -439,9 +451,15 @@ function Studio() {
                     <div className="studio-item" key={item.id}>
                       <div>
                         <strong>{item.title}</strong>
-                        <span>{item.category} · {item.type}</span>
+                        <span>
+                          {item.category} · {item.type}
+                        </span>
                       </div>
-                      <button disabled={busy} onClick={() => void removeVideo(item.id)} aria-label={`Delete ${item.title}`}>
+                      <button
+                        disabled={busy}
+                        onClick={() => void removeVideo(item.id)}
+                        aria-label={`Delete ${item.title}`}
+                      >
                         <Trash2 size={16} />
                       </button>
                     </div>
@@ -451,7 +469,9 @@ function Studio() {
                 <div className="studio-list-heading project-list-heading">
                   <div>
                     <p className="section-kicker">WEB / SIDE PROJECTS</p>
-                    <h2>Projects <span>{data.projects.length.toString().padStart(2, "0")}</span></h2>
+                    <h2>
+                      Projects <span>{data.projects.length.toString().padStart(2, "0")}</span>
+                    </h2>
                   </div>
                 </div>
                 <div className="studio-item-list">
@@ -461,7 +481,11 @@ function Studio() {
                         <strong>{item.title}</strong>
                         <span>{item.tag}</span>
                       </div>
-                      <button disabled={busy} onClick={() => void removeProject(item.id)} aria-label={`Delete ${item.title}`}>
+                      <button
+                        disabled={busy}
+                        onClick={() => void removeProject(item.id)}
+                        aria-label={`Delete ${item.title}`}
+                      >
                         <Trash2 size={16} />
                       </button>
                     </div>
@@ -470,13 +494,22 @@ function Studio() {
               </section>
             </div>
 
-            <button className="studio-submit" type="button" disabled={busy} onClick={() => void handleLogout()}>
+            <button
+              className="studio-submit"
+              type="button"
+              disabled={busy}
+              onClick={() => void handleLogout()}
+            >
               <LogOut size={16} /> Sign out
             </button>
           </>
         )}
 
-        {notice && <p className="studio-notice" role="status">{notice}</p>}
+        {notice && (
+          <p className="studio-notice" role="status">
+            {notice}
+          </p>
+        )}
       </main>
     </div>
   );
