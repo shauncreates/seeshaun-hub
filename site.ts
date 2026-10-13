@@ -10,8 +10,8 @@ export const siteConfig = {
   name: "shaun",
   handle: "@seeshaun",
   tagline: "Video Editor & Creator | Motion Graphics & Transition Edits",
-  bio: "I cut fast, punchy edits — transitions, motion graphics and sound design for creators, gaming clips and brands. Available for commissions.",
-  contactUrl: "https://discord.com/users/000000000000000000",
+  bio: "I make motion graphics and personal edits. Available for commissions.",
+  contactUrl: "https://discord.com/users/527986426101497866",
   contactLabel: "Contact / DM",
   copyright: "© 2026 seeshaun",
 
@@ -46,25 +46,25 @@ export const siteConfig = {
       },
       {
         label: "YouTube",
-        description: "Showreels and long-form edits",
+        description: "Long-form edits",
         url: "https://www.youtube.com/@shaun_vfx",
         icon: "youtube" as SocialKey,
       },
       {
         label: "Instagram",
-        description: "Behind the scenes",
+        description: "idk bra",
         url: "https://www.instagram.com/shaun_vfx",
         icon: "instagram" as SocialKey,
       },
       {
         label: "Spotify",
-        description: "What I loop while editing",
+        description: "My Spotify profile",
         url: "https://open.spotify.com/user/31pys274hbig3wp7lrtd6bvjy3si",
         icon: "spotify" as SocialKey,
       },
       {
         label: "GitHub",
-        description: "Code, tools and experiments",
+        description: "All my projects",
         url: "https://github.com/shauncreates",
         icon: "github" as SocialKey,
       },
@@ -72,8 +72,8 @@ export const siteConfig = {
     /** Extra plain buttons (no social icon) shown under the socials. */
     extras: [
       { label: "My Proxy", url: "https://proxy.seeshaun.xyz" },
-      { label: "Commission / DM me", url: "https://discord.com/users/000000000000000000" },
-      { label: "Roblox Funk Editors Top 30", url: "https://robloxeditorslist.seeshaun.xyz" },
+      { label: "Commission / DM me", url: "https://discord.com/users/527986426101497866" },
+      { label: "Roblox Editors Tierlist", url: "https://robloxeditors.com" },
     ],
   },
 
