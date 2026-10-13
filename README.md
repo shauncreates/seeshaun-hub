@@ -74,10 +74,10 @@ This project is configured for Vercel through the Nitro Vercel preset in `vite.c
 
 Optional variables used by the stats feature:
 
-| Variable | Purpose |
-| --- | --- |
+| Variable          | Purpose                                           |
+| ----------------- | ------------------------------------------------- |
 | `YOUTUBE_API_KEY` | Server-side YouTube subscriber count, if enabled. |
-| `YOUTUBE_CHANNEL` | Optional YouTube channel override. |
+| `YOUTUBE_CHANNEL` | Optional YouTube channel override.                |
 
 Do not commit `.env.local` or other environment files. `.env.example` contains placeholders only.
 

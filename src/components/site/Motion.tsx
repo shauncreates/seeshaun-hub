@@ -50,7 +50,10 @@ export function MotionEffects() {
     const paintProgress = () => {
       ticking = false;
       const max = root.scrollHeight - window.innerHeight;
-      bar.current?.style.setProperty("--p", String(max > 0 ? Math.min(1, window.scrollY / max) : 0));
+      bar.current?.style.setProperty(
+        "--p",
+        String(max > 0 ? Math.min(1, window.scrollY / max) : 0),
+      );
     };
     const onScroll = () => {
       if (!ticking) {
